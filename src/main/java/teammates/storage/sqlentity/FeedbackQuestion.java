@@ -346,7 +346,7 @@ public abstract class FeedbackQuestion extends BaseEntity implements Comparable<
                 + ", giverType=" + giverType + ", recipientType=" + recipientType
                 + ", numOfEntitiesToGiveFeedbackTo=" + numOfEntitiesToGiveFeedbackTo + ", showResponsesTo="
                 + showResponsesTo + ", showGiverNameTo=" + showGiverNameTo + ", showRecipientNameTo="
-                + showRecipientNameTo + ", isClosingEmailEnabled=" + ", createdAt=" + getCreatedAt() + ", updatedAt="
+                + showRecipientNameTo + ", isClosingSoonEmailEnabled=" + ", createdAt=" + getCreatedAt() + ", updatedAt="
                 + updatedAt + "]";
     }
 

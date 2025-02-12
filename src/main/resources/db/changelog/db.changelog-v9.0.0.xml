@@ -81,16 +81,16 @@
             <column name="is_closed_email_sent" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>
-            <column name="is_closing_email_enabled" type="BOOLEAN">
+            <column name="is_closing_soon_email_enabled" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>
             <column name="is_closing_soon_email_sent" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>
-            <column name="is_open_email_sent" type="BOOLEAN">
+            <column name="is_opened_email_sent" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>
-            <column name="is_opening_email_enabled" type="BOOLEAN">
+            <column name="is_opening_soon_email_enabled" type="BOOLEAN">
                 <constraints nullable="false" />
             </column>
             <column name="is_opening_soon_email_sent" type="BOOLEAN">

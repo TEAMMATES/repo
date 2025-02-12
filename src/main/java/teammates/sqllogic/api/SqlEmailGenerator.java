@@ -77,13 +77,13 @@ public final class SqlEmailGenerator {
     }
 
     /**
-     * Generate Feedback Session Opening emails.
+     * Generate Feedback Session Opened emails.
      */
-    public List<EmailWrapper> generateFeedbackSessionOpeningEmails(FeedbackSession session) {
-        return generateFeedbackSessionOpeningOrClosingEmails(session, EmailType.FEEDBACK_OPENING);
+    public List<EmailWrapper> generateFeedbackSessionOpenedEmails(FeedbackSession session) {
+        return generateFeedbackSessionOpenedorClosingSoonEmails(session, EmailType.FEEDBACK_OPENED);
     }
 
-    private List<EmailWrapper> generateFeedbackSessionOpeningOrClosingEmails(
+    private List<EmailWrapper> generateFeedbackSessionOpenedorClosingSoonEmails(
             FeedbackSession session, EmailType emailType) {
         Course course = session.getCourse();
         boolean isEmailNeededForStudents = fsLogic.isFeedbackSessionForUserTypeToAnswer(session, false);
@@ -98,7 +98,7 @@ public final class SqlEmailGenerator {
                 ? usersLogic.getInstructorsForCourse(course.getId())
                 : new ArrayList<>();
 
-        if (emailType == EmailType.FEEDBACK_CLOSING) {
+        if (emailType == EmailType.FEEDBACK_CLOSING_SOON_SOON) {
             List<DeadlineExtension> deadlines = session.getDeadlineExtensions();
             Set<UUID> userIds = deadlines.stream()
                     .map(d -> d.getUser().getId())
@@ -115,11 +115,11 @@ public final class SqlEmailGenerator {
                     .collect(Collectors.toList());
         }
 
-        String status = emailType == EmailType.FEEDBACK_OPENING
+        String status = emailType == EmailType.FEEDBACK_OPENED
                 ? FEEDBACK_STATUS_SESSION_OPENING
                 : FEEDBACK_STATUS_SESSION_CLOSING;
 
-        String template = emailType == EmailType.FEEDBACK_OPENING
+        String template = emailType == EmailType.FEEDBACK_OPENED
                 ? EmailTemplates.USER_FEEDBACK_SESSION_OPENING.replace("${status}", status)
                 : EmailTemplates.USER_FEEDBACK_SESSION.replace("${status}", status);
 
@@ -267,7 +267,7 @@ public final class SqlEmailGenerator {
         List<FeedbackSession> fsInCourse = fsLogic.getFeedbackSessionsForCourse(courseId);
 
         for (FeedbackSession fs : fsInCourse) {
-            if (fs.isOpenEmailSent() || fs.isPublishedEmailSent()) {
+            if (fs.isOpenedEmailSent() || fs.isPublishedEmailSent()) {
                 sessions.add(fs);
             }
         }
@@ -516,8 +516,8 @@ public final class SqlEmailGenerator {
      *
      * <p>Students and instructors with deadline extensions are not notified.
      */
-    public List<EmailWrapper> generateFeedbackSessionClosingEmails(FeedbackSession session) {
-        return generateFeedbackSessionOpeningOrClosingEmails(session, EmailType.FEEDBACK_CLOSING);
+    public List<EmailWrapper> generateFeedbackSessionClosingSoonEmails(FeedbackSession session) {
+        return generateFeedbackSessionOpenedorClosingSoonEmails(session, EmailType.FEEDBACK_CLOSING_SOON_SOON);
     }
 
     /**
@@ -561,7 +561,7 @@ public final class SqlEmailGenerator {
         }
 
         String template = EmailTemplates.USER_FEEDBACK_SESSION.replace("${status}", FEEDBACK_STATUS_SESSION_CLOSING);
-        EmailType type = EmailType.FEEDBACK_CLOSING;
+        EmailType type = EmailType.FEEDBACK_CLOSING_SOON_SOON;
         String feedbackAction = FEEDBACK_ACTION_SUBMIT_EDIT_OR_VIEW;
         List<EmailWrapper> emails = new ArrayList<>();
         for (Student student : students) {
