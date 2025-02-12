@@ -147,10 +147,10 @@ public class EmailGeneratorTest extends BaseLogicTest {
         String subject = String.format(EmailType.FEEDBACK_OPENED.getSubject(),
                                        course.getName(), session.getFeedbackSessionName());
 
-        verifyEmailReceivedCorrectly(emails, student1.getEmail(), subject, "/sessionOpeningSoonEmailForStudent.html");
+        verifyEmailReceivedCorrectly(emails, student1.getEmail(), subject, "/sessionOpenedEmailForStudent.html");
         verifyEmailReceivedCorrectly(emails, instructor1.getEmail(), EmailWrapper.EMAIL_COPY_SUBJECT_PREFIX + subject,
-                "/sessionOpeningSoonEmailCopyToInstructor.html");
-        verifyEmailReceivedCorrectly(emails, instructor1.getEmail(), subject, "/sessionOpeningSoonEmailForInstructor.html");
+                "/sessionOpenedEmailCopyToInstructor.html");
+        verifyEmailReceivedCorrectly(emails, instructor1.getEmail(), subject, "/sessionOpenedEmailForInstructor.html");
 
         ______TS("feedback session reminders");
 
@@ -178,7 +178,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
         // 3 instructors, 3 students, and 3 co-owner to be notified
         assertEquals(9, emails.size());
 
-        subject = String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+        subject = String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                                 course.getName(), session.getFeedbackSessionName());
 
         verifyEmailReceivedCorrectly(emails, student1.getEmail(), subject, "/sessionClosingSoonEmailForStudent.html");
@@ -357,7 +357,7 @@ public class EmailGeneratorTest extends BaseLogicTest {
 
         assertEquals(deadlineExtensions.size(), emails.size());
 
-        String subject = String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+        String subject = String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                                 course.getName(), session.getFeedbackSessionName());
 
         verifyEmailReceivedCorrectly(emails, student2.getUserEmail(),
@@ -442,16 +442,16 @@ public class EmailGeneratorTest extends BaseLogicTest {
                 course.getName(), session.getFeedbackSessionName());
 
         verifyEmailReceivedCorrectly(emails, student1.getEmail(), subject,
-                "/sessionOpeningSoonEmailTestingSanitizationForStudent.html");
+                "/sessionOpenedEmailTestingSanitizationForStudent.html");
         verifyEmailReceivedCorrectly(emails, instructor1.getEmail(), EmailWrapper.EMAIL_COPY_SUBJECT_PREFIX + subject,
-                "/sessionOpeningSoonEmailTestingSanitizationCopyToInstructor.html");
+                "/sessionOpenedEmailTestingSanitizationCopyToInstructor.html");
 
         ______TS("feedback session closing alerts: sanitization required");
 
         emails = emailGenerator.generateFeedbackSessionClosingSoonEmails(session);
         assertEquals(2, emails.size());
 
-        subject = String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+        subject = String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                 course.getName(), session.getFeedbackSessionName());
 
         verifyEmailReceivedCorrectly(emails, student1.getEmail(), subject,

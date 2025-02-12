@@ -61,7 +61,7 @@ public class FeedbackSessionClosingSoonRemindersActionIT extends BaseActionIT<Fe
 
     @Override
     String getActionUri() {
-        return Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_SOON_REMINDERS;
+        return Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS;
     }
 
     @Override

@@ -94,7 +94,7 @@ public final class EmailGenerator {
                 ? instructorsLogic.getInstructorsForCourse(session.getCourseId())
                 : new ArrayList<>();
 
-        if (emailType == EmailType.FEEDBACK_CLOSING_SOON_SOON) {
+        if (emailType == EmailType.FEEDBACK_CLOSING_SOON) {
             Map<String, Instant> studentDeadlines = session.getStudentDeadlines();
             students = students.stream()
                     .filter(x -> !studentDeadlines.containsKey(x.getEmail()))
@@ -489,7 +489,7 @@ public final class EmailGenerator {
      * <p>Students and instructors with deadline extensions are not notified.
      */
     public List<EmailWrapper> generateFeedbackSessionClosingSoonEmails(FeedbackSessionAttributes session) {
-        return generateFeedbackSessionOpenedorClosingSoonEmails(session, EmailType.FEEDBACK_CLOSING_SOON_SOON);
+        return generateFeedbackSessionOpenedorClosingSoonEmails(session, EmailType.FEEDBACK_CLOSING_SOON);
     }
 
     /**
@@ -538,7 +538,7 @@ public final class EmailGenerator {
         }
 
         String template = EmailTemplates.USER_FEEDBACK_SESSION.replace("${status}", FEEDBACK_STATUS_SESSION_CLOSING);
-        EmailType type = EmailType.FEEDBACK_CLOSING_SOON_SOON;
+        EmailType type = EmailType.FEEDBACK_CLOSING_SOON;
         String feedbackAction = FEEDBACK_ACTION_SUBMIT_EDIT_OR_VIEW;
         List<EmailWrapper> emails = new ArrayList<>();
         for (StudentAttributes student : students) {

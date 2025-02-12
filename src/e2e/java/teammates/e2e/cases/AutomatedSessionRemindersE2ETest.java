@@ -10,7 +10,7 @@ import teammates.e2e.util.TestProperties;
 
 /**
  * SUT: {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_OPENED_REMINDERS},
- *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSING_SOON_SOON_REMINDERS},
+ *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS},
  *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSED_REMINDERS},
  *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_PUBLISHED_REMINDERS}.
  */
@@ -77,7 +77,7 @@ public class AutomatedSessionRemindersE2ETest extends BaseE2ETestCase {
     }
 
     private void testFeedbackSessionClosingSoonReminders() {
-        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_SOON_REMINDERS, null);
+        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS, null);
     }
 
     private void testFeedbackSessionClosedReminders() {

@@ -407,7 +407,7 @@ public final class Const {
                 URI_PREFIX + "/feedbackSessionOpenedReminders";
         public static final String AUTOMATED_FEEDBACK_CLOSED_REMINDERS =
                 URI_PREFIX + "/feedbackSessionClosedReminders";
-        public static final String AUTOMATED_FEEDBACK_CLOSING_SOON_SOON_REMINDERS =
+        public static final String AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS =
                 URI_PREFIX + "/feedbackSessionClosingSoonReminders";
         public static final String AUTOMATED_FEEDBACK_PUBLISHED_REMINDERS =
                 URI_PREFIX + "/feedbackSessionPublishedReminders";

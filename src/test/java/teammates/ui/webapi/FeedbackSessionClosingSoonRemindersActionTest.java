@@ -25,7 +25,7 @@ public class FeedbackSessionClosingSoonRemindersActionTest
 
     @Override
     protected String getActionUri() {
-        return Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_SOON_REMINDERS;
+        return Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS;
     }
 
     @Override
@@ -122,7 +122,7 @@ public class FeedbackSessionClosingSoonRemindersActionTest
             SendEmailRequest requestBody = (SendEmailRequest) task.getRequestBody();
             EmailWrapper email = requestBody.getEmail();
             String expectedSubject = (email.getIsCopy() ? EmailWrapper.EMAIL_COPY_SUBJECT_PREFIX : "")
-                    + String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+                    + String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                     courseName, session1.getFeedbackSessionName());
             assertEquals(expectedSubject, email.getSubject());
         }
@@ -219,9 +219,9 @@ public class FeedbackSessionClosingSoonRemindersActionTest
         for (var task : tasksAdded) {
             SendEmailRequest requestBody = (SendEmailRequest) task.getRequestBody();
             EmailWrapper email = requestBody.getEmail();
-            String expectedSubjectSession1 = String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+            String expectedSubjectSession1 = String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                     courseName, session1.getFeedbackSessionName());
-            String expectedSubjectSession3 = String.format(EmailType.FEEDBACK_CLOSING_SOON_SOON.getSubject(),
+            String expectedSubjectSession3 = String.format(EmailType.FEEDBACK_CLOSING_SOON.getSubject(),
                     courseName, session3.getFeedbackSessionName());
             assertTrue(expectedSubjectSession1.equals(email.getSubject())
                     || expectedSubjectSession3.equals(email.getSubject()));
