@@ -44,7 +44,7 @@
     }
   },
   "feedbackSessions": {
-    "openingSession": {
+    "openedSession": {
       "feedbackSessionName": "AutSesRem Opening Session",
       "courseId": "tm.e2e.AutSesRem.course",
       "creatorEmail": "AutSesRem.instructor@gmail.tmt",
@@ -56,12 +56,12 @@
       "resultsVisibleFromTime": "2037-05-02T00:00:00Z",
       "timeZone": "UTC",
       "gracePeriod": 0,
-      "sentOpenEmail": false,
-      "sentClosingEmail": false,
+      "sentOpenedEmail": false,
+      "sentClosingSoonEmail": false,
       "sentClosedEmail": false,
       "sentPublishedEmail": false,
-      "isOpeningEmailEnabled": true,
-      "isClosingEmailEnabled": true,
+      "isOpeningSoonEmailEnabled": true,
+      "isClosingSoonEmailEnabled": true,
       "isPublishedEmailEnabled": true,
       "studentDeadlines": {},
       "instructorDeadlines": {}
@@ -78,12 +78,12 @@
       "resultsVisibleFromTime": "2037-05-02T00:00:00Z",
       "timeZone": "UTC",
       "gracePeriod": 15,
-      "sentOpenEmail": true,
-      "sentClosingEmail": false,
+      "sentOpenedEmail": true,
+      "sentClosingSoonEmail": false,
       "sentClosedEmail": false,
       "sentPublishedEmail": false,
-      "isOpeningEmailEnabled": true,
-      "isClosingEmailEnabled": true,
+      "isOpeningSoonEmailEnabled": true,
+      "isClosingSoonEmailEnabled": true,
       "isPublishedEmailEnabled": true,
       "studentDeadlines": {},
       "instructorDeadlines": {}
@@ -100,12 +100,12 @@
       "resultsVisibleFromTime": "2037-05-02T00:00:00Z",
       "timeZone": "UTC",
       "gracePeriod": 15,
-      "sentOpenEmail": true,
-      "sentClosingEmail": false,
+      "sentOpenedEmail": true,
+      "sentClosingSoonEmail": false,
       "sentClosedEmail": false,
       "sentPublishedEmail": false,
-      "isOpeningEmailEnabled": true,
-      "isClosingEmailEnabled": true,
+      "isOpeningSoonEmailEnabled": true,
+      "isClosingSoonEmailEnabled": true,
       "isPublishedEmailEnabled": true,
       "studentDeadlines": {},
       "instructorDeadlines": {}
@@ -122,19 +122,19 @@
       "resultsVisibleFromTime": "2012-05-02T00:00:00Z",
       "timeZone": "UTC",
       "gracePeriod": 0,
-      "sentOpenEmail": true,
-      "sentClosingEmail": false,
+      "sentOpenedEmail": true,
+      "sentClosingSoonEmail": false,
       "sentClosedEmail": false,
       "sentPublishedEmail": false,
-      "isOpeningEmailEnabled": true,
-      "isClosingEmailEnabled": true,
+      "isOpeningSoonEmailEnabled": true,
+      "isClosingSoonEmailEnabled": true,
       "isPublishedEmailEnabled": true,
       "studentDeadlines": {},
       "instructorDeadlines": {}
     }
   },
   "feedbackQuestions": {
-    "questionForOpeningSession": {
+    "questionForOpenedSession": {
       "feedbackSessionName": "AutSesRem Opening Session",
       "courseId": "tm.e2e.AutSesRem.course",
       "questionDetails": {

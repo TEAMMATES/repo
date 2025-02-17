@@ -16,7 +16,7 @@ public class FeedbackSessionOpeningSoonRemindersAction extends AdminOnlyAction {
 
     @Override
     public JsonResult execute() {
-        List<FeedbackSessionAttributes> sessionAttributes = logic.getFeedbackSessionsOpeningWithinTimeLimit();
+        List<FeedbackSessionAttributes> sessionAttributes = logic.getFeedbackSessionsOpeningSoonWithinTimeLimit();
         for (FeedbackSessionAttributes session : sessionAttributes) {
             // If course has been migrated, use sql email logic instead.
             if (isCourseMigrated(session.getCourseId())) {
@@ -38,7 +38,7 @@ public class FeedbackSessionOpeningSoonRemindersAction extends AdminOnlyAction {
             }
         }
 
-        List<FeedbackSession> sessions = sqlLogic.getFeedbackSessionsOpeningWithinTimeLimit();
+        List<FeedbackSession> sessions = sqlLogic.getFeedbackSessionsOpeningSoonWithinTimeLimit();
         for (FeedbackSession session : sessions) {
             RequestTracer.checkRemainingTime();
             List<EmailWrapper> emailsToBeSent = sqlEmailGenerator.generateFeedbackSessionOpeningSoonEmails(session);

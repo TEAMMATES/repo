@@ -83,7 +83,8 @@ public final class DeadlineExtensionsDb extends EntitiesDb<DeadlineExtension, De
         boolean hasSameAttributes =
                 this.<String>hasSameValue(deadlineExtension.getUserEmail(), newAttributes.getUserEmail())
                 && this.<Instant>hasSameValue(deadlineExtension.getEndTime(), newAttributes.getEndTime())
-                && this.<Boolean>hasSameValue(deadlineExtension.getSentClosingEmail(), newAttributes.getSentClosingEmail());
+                && this.<Boolean>hasSameValue(deadlineExtension.getSentClosingSoonEmail(),
+                        newAttributes.getSentClosingSoonEmail());
 
         if (hasSameAttributes) {
             log.info(String.format(OPTIMIZED_SAVING_POLICY_APPLIED, DeadlineExtension.class.getSimpleName(), updateOptions));
@@ -193,15 +194,15 @@ public final class DeadlineExtensionsDb extends EntitiesDb<DeadlineExtension, De
      * Gets a list of deadline extensions with endTime coming up soon
      * and possibly need a closing email to be sent.
      */
-    public List<DeadlineExtensionAttributes> getDeadlineExtensionsPossiblyNeedingClosingEmail() {
-        return new ArrayList<>(makeAttributes(getDeadlineExtensionEntitiesPossiblyNeedingClosingEmail()));
+    public List<DeadlineExtensionAttributes> getDeadlineExtensionsPossiblyNeedingClosingSoonEmail() {
+        return new ArrayList<>(makeAttributes(getDeadlineExtensionEntitiesPossiblyNeedingClosingSoonEmail()));
     }
 
-    private List<DeadlineExtension> getDeadlineExtensionEntitiesPossiblyNeedingClosingEmail() {
+    private List<DeadlineExtension> getDeadlineExtensionEntitiesPossiblyNeedingClosingSoonEmail() {
         return load()
                 .filter("endTime >=", Instant.now())
                 .filter("endTime <=", TimeHelper.getInstantDaysOffsetFromNow(1))
-                .filter("sentClosingEmail =", false)
+                .filter("sentClosingSoonEmail =", false)
                 .list();
     }
 
