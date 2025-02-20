@@ -239,19 +239,19 @@ public class InstructorFeedbackEditPage extends AppPage {
     }
 
     private void verifyEmailSettings(FeedbackSessionAttributes feedbackSession) {
-        boolean isOpeningEmailEnabled = feedbackSession.isOpeningEmailEnabled();
-        boolean isClosingEmailEnabled = feedbackSession.isClosingEmailEnabled();
+        boolean isOpeningSoonEmailEnabled = feedbackSession.isOpeningSoonEmailEnabled();
+        boolean isClosingSoonEmailEnabled = feedbackSession.isClosingSoonEmailEnabled();
         boolean isPublishedEmailEnabled = feedbackSession.isPublishedEmailEnabled();
 
         // Default settings, assert setting section not expanded
-        if (isOpeningEmailEnabled && isClosingEmailEnabled && isPublishedEmailEnabled) {
+        if (isOpeningSoonEmailEnabled && isClosingSoonEmailEnabled && isPublishedEmailEnabled) {
             assertTrue(isElementPresent("btn-change-email"));
             return;
         }
-        if (isOpeningEmailEnabled) {
+        if (isOpeningSoonEmailEnabled) {
             assertTrue(openingSessionEmailCheckbox.isSelected());
         }
-        if (isClosingEmailEnabled) {
+        if (isClosingSoonEmailEnabled) {
             assertTrue(closingSessionEmailCheckbox.isSelected());
         }
         if (isPublishedEmailEnabled) {
@@ -1009,10 +1009,10 @@ public class InstructorFeedbackEditPage extends AppPage {
 
     private void setEmailSettings(FeedbackSessionAttributes newFeedbackSessionDetails) {
         showEmailSettings();
-        if (newFeedbackSessionDetails.isOpeningEmailEnabled() != openingSessionEmailCheckbox.isSelected()) {
+        if (newFeedbackSessionDetails.isOpeningSoonEmailEnabled() != openingSessionEmailCheckbox.isSelected()) {
             click(openingSessionEmailCheckbox);
         }
-        if (newFeedbackSessionDetails.isClosingEmailEnabled() != closingSessionEmailCheckbox.isSelected()) {
+        if (newFeedbackSessionDetails.isClosingSoonEmailEnabled() != closingSessionEmailCheckbox.isSelected()) {
             click(closingSessionEmailCheckbox);
         }
         if (newFeedbackSessionDetails.isPublishedEmailEnabled() != publishedSessionEmailCheckbox.isSelected()) {

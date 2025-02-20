@@ -402,10 +402,10 @@ public class InstructorFeedbackSessionsPage extends AppPage {
 
     private void setEmailSettings(FeedbackSessionAttributes newFeedbackSessionDetails) {
         showEmailSettings();
-        if (newFeedbackSessionDetails.isOpeningEmailEnabled() != openingSessionEmailCheckbox.isSelected()) {
+        if (newFeedbackSessionDetails.isOpeningSoonEmailEnabled() != openingSessionEmailCheckbox.isSelected()) {
             click(openingSessionEmailCheckbox);
         }
-        if (newFeedbackSessionDetails.isClosingEmailEnabled() != closingSessionEmailCheckbox.isSelected()) {
+        if (newFeedbackSessionDetails.isClosingSoonEmailEnabled() != closingSessionEmailCheckbox.isSelected()) {
             click(closingSessionEmailCheckbox);
         }
         if (newFeedbackSessionDetails.isPublishedEmailEnabled() != publishedSessionEmailCheckbox.isSelected()) {

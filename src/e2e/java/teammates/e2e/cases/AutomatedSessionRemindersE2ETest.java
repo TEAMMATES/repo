@@ -9,8 +9,8 @@ import teammates.common.util.TimeHelperExtension;
 import teammates.e2e.util.TestProperties;
 
 /**
- * SUT: {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_OPENING_REMINDERS},
- *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSING_REMINDERS},
+ * SUT: {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_OPENED_REMINDERS},
+ *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS},
  *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_CLOSED_REMINDERS},
  *      {@link Const.CronJobURIs#AUTOMATED_FEEDBACK_PUBLISHED_REMINDERS}.
  */
@@ -30,7 +30,7 @@ public class AutomatedSessionRemindersE2ETest extends BaseE2ETestCase {
         testData.students.get("alice.tmms@AutSesRem.course").setEmail(student1Email);
         testData.feedbackSessions.get("closedSession").setCreatorEmail(student1Email);
         testData.feedbackSessions.get("closingSession").setCreatorEmail(student1Email);
-        testData.feedbackSessions.get("openingSession").setCreatorEmail(student1Email);
+        testData.feedbackSessions.get("openedSession").setCreatorEmail(student1Email);
         testData.feedbackSessions.get("publishedSession").setCreatorEmail(student1Email);
 
         // Set closing time of one feedback session to tomorrow
@@ -42,8 +42,8 @@ public class AutomatedSessionRemindersE2ETest extends BaseE2ETestCase {
         closedFeedbackSession.setEndTime(TimeHelperExtension.getInstantMinutesOffsetFromNow(-30));
 
         // Set opening time for one feedback session to yesterday
-        FeedbackSessionAttributes openingFeedbackSession = testData.feedbackSessions.get("openingSession");
-        openingFeedbackSession.setStartTime(TimeHelper.getInstantDaysOffsetFromNow(-1));
+        FeedbackSessionAttributes openedFeedbackSession = testData.feedbackSessions.get("openedSession");
+        openedFeedbackSession.setStartTime(TimeHelper.getInstantDaysOffsetFromNow(-1));
 
         // Published time for one feedback session already set to some time in the past.
 
@@ -62,8 +62,8 @@ public class AutomatedSessionRemindersE2ETest extends BaseE2ETestCase {
     @Override
     public void testAll() {
         testFeedbackSessionOpeningSoonReminders();
-        testFeedbackSessionOpeningReminders();
-        testFeedbackSessionClosingReminders();
+        testFeedbackSessionOpenedReminders();
+        testFeedbackSessionClosingSoonReminders();
         testFeedbackSessionClosedReminders();
         testFeedbackSessionPublishedReminders();
     }
@@ -72,12 +72,12 @@ public class AutomatedSessionRemindersE2ETest extends BaseE2ETestCase {
         BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_OPENING_SOON_REMINDERS, null);
     }
 
-    private void testFeedbackSessionOpeningReminders() {
-        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_OPENING_REMINDERS, null);
+    private void testFeedbackSessionOpenedReminders() {
+        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_OPENED_REMINDERS, null);
     }
 
-    private void testFeedbackSessionClosingReminders() {
-        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_REMINDERS, null);
+    private void testFeedbackSessionClosingSoonReminders() {
+        BACKDOOR.executeGetRequest(Const.CronJobURIs.AUTOMATED_FEEDBACK_CLOSING_SOON_REMINDERS, null);
     }
 
     private void testFeedbackSessionClosedReminders() {

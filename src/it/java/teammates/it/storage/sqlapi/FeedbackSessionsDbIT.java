@@ -156,9 +156,9 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         coursesDb.createCourse(course);
         FeedbackSession fs = createTypicalFeedbackSession(course);
         // insert into feedback_sessions (course_id, created_at, creator_email, deleted_at, end_time, grace_period,
-        // instructions, is_closed_email_sent, is_closing_email_enabled, is_closing_soon_email_sent, is_open_email_sent,
-        // is_opening_email_enabled, is_opening_soon_email_sent, is_published_email_enabled, is_published_email_sent,
-        // name, results_visible_from_time, session_visible_from_time,
+        // instructions, is_closed_email_sent, is_closing_soon_email_enabled, is_closing_soon_email_sent,
+        // is_opened_email_sent, is_opening_soon_email_enabled, is_opening_soon_email_sent, is_published_email_enabled,
+        // is_published_email_sent, name, results_visible_from_time, session_visible_from_time,
         // start_time, updated_at, id) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         String sqlInjectionInstructions = "instructions', FALSE, TRUE, FALSE, FALSE, "
                 + "TRUE, FALSE, TRUE, TRUE, "
@@ -182,8 +182,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession createdFs = fsDb.getFeedbackSession("fs-name", "course-id");
         assertNotNull(createdFs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -202,8 +202,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession createdFs = fsDb.getFeedbackSession("fs-name", "course-id");
         assertNotNull(createdFs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -223,8 +223,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession createdFs = fsDb.getSoftDeletedFeedbackSession("fs-name", "course-id");
         assertNotNull(createdFs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -244,8 +244,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession createdFs = fsDb.getSoftDeletedFeedbackSession("fs-name", "course-id");
         assertNotNull(createdFs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -265,8 +265,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         List<FeedbackSession> sessions = fsDb.getSoftDeletedFeedbackSessionsForCourse("course-id");
         assertEquals(1, sessions.size());
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.deleted_at is not null and
@@ -286,8 +286,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         List<FeedbackSession> sessions = fsDb.getFeedbackSessionEntitiesForCourse("course-id");
         assertEquals(1, sessions.size());
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.course_id=?
@@ -308,8 +308,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
                 fsDb.getFeedbackSessionEntitiesForCourseStartingAfter("course-id", beforeStart);
         assertEquals(1, sessions.size());
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.start_time>=? and
@@ -354,10 +354,10 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession createdFs = fsDb.getFeedbackSession("fs-name", "course-id");
         fs.setId(createdFs.getId());
         // update feedback_sessions set course_id=?, creator_email=?, deleted_at=?, end_time=?, grace_period=?,
-        // instructions=?, is_closed_email_sent=?, is_closing_email_enabled=?, is_closing_soon_email_sent=?,
-        // is_open_email_sent=?, is_opening_email_enabled=?, is_opening_soon_email_sent=?, is_published_email_enabled=?,
-        // is_published_email_sent=?, name=?, results_visible_from_time=?, session_visible_from_time=?, start_time=?,
-        // updated_at=? where id=?
+        // instructions=?, is_closed_email_sent=?, is_closing_soon_email_enabled=?, is_closing_soon_email_sent=?,
+        // is_opened_email_sent=?, is_opening_soon_email_enabled=?, is_opening_soon_email_sent=?,
+        // is_published_email_enabled=?, is_published_email_sent=?, name=?, results_visible_from_time=?,
+        // session_visible_from_time=?, start_time=?, updated_at=? where id=?
         String sqlInjectionInstructions = "new-instructions'; DROP TABLE feedback_sessions;--";
         fs.setInstructions(sqlInjectionInstructions);
         fsDb.updateFeedbackSession(fs);
@@ -374,8 +374,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         fsDb.createFeedbackSession(fs);
         fsDb.softDeleteFeedbackSession("fs-name", "course-id");
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -395,8 +395,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         fsDb.createFeedbackSession(fs);
         fsDb.softDeleteFeedbackSession("fs-name", "course-id");
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -415,8 +415,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession fs = createTypicalFeedbackSession(course);
         fsDb.createFeedbackSession(fs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
@@ -435,8 +435,8 @@ public class FeedbackSessionsDbIT extends BaseTestCaseWithSqlDatabaseAccess {
         FeedbackSession fs = createTypicalFeedbackSession(course);
         fsDb.createFeedbackSession(fs);
         // select f1_0.id,f1_0.course_id,f1_0.created_at,f1_0.creator_email,f1_0.deleted_at,f1_0.end_time,
-        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_email_enabled,
-        // f1_0.is_closing_soon_email_sent,f1_0.is_open_email_sent,f1_0.is_opening_email_enabled,
+        // f1_0.grace_period,f1_0.instructions,f1_0.is_closed_email_sent,f1_0.is_closing_soon_email_enabled,
+        // f1_0.is_closing_soon_email_sent,f1_0.is_opened_email_sent,f1_0.is_opening_soon_email_enabled,
         // f1_0.is_opening_soon_email_sent,f1_0.is_published_email_enabled,f1_0.is_published_email_sent,f1_0.name,
         // f1_0.results_visible_from_time,f1_0.session_visible_from_time,f1_0.start_time,f1_0.updated_at from
         // feedback_sessions f1_0 join courses c1_0 on c1_0.id=f1_0.course_id where f1_0.name=? and f1_0.course_id=?
