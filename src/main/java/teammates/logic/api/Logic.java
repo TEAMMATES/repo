@@ -1414,8 +1414,8 @@ public class Logic {
         return feedbackSessionsLogic.getFeedbackSessionsClosingWithinTimeLimit();
     }
 
-    public List<FeedbackSessionAttributes> getFeedbackSessionsOpeningWithinTimeLimit() {
-        return feedbackSessionsLogic.getFeedbackSessionsOpeningWithinTimeLimit();
+    public List<FeedbackSessionAttributes> getFeedbackSessionsOpeningSoonWithinTimeLimit() {
+        return feedbackSessionsLogic.getFeedbackSessionsOpeningSoonWithinTimeLimit();
     }
 
     /**
@@ -1427,8 +1427,8 @@ public class Logic {
         return feedbackSessionsLogic.getFeedbackSessionsWhichNeedAutomatedPublishedEmailsToBeSent();
     }
 
-    public List<FeedbackSessionAttributes> getFeedbackSessionsWhichNeedOpenEmailsToBeSent() {
-        return feedbackSessionsLogic.getFeedbackSessionsWhichNeedOpenEmailsToBeSent();
+    public List<FeedbackSessionAttributes> getFeedbackSessionsWhichNeedOpenedEmailsToBeSent() {
+        return feedbackSessionsLogic.getFeedbackSessionsWhichNeedOpenedEmailsToBeSent();
     }
 
     public String getSectionForTeam(String courseId, String teamName) {
@@ -1676,8 +1676,8 @@ public class Logic {
      * Gets a list of deadline extensions with end time within the next 24 hours
      * and possibly need a closing email to be sent.
      */
-    public List<DeadlineExtensionAttributes> getDeadlineExtensionsPossiblyNeedingClosingEmail() {
-        return deadlineExtensionsLogic.getDeadlineExtensionsPossiblyNeedingClosingEmail();
+    public List<DeadlineExtensionAttributes> getDeadlineExtensionsPossiblyNeedingClosingSoonEmail() {
+        return deadlineExtensionsLogic.getDeadlineExtensionsPossiblyNeedingClosingSoonEmail();
     }
 
 }
